@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💻 Gestor de Agentes de IA - Frontend
 
-## Getting Started
+Esta es la **interfaz de usuario** para el _Gestor de Agentes de Inteligencia Artificial_.  
+Es una aplicación moderna y reactiva construida con **Next.js (React)** y **TypeScript**, diseñada para consumir la API del backend.
 
-First, run the development server:
+La interfaz permite una gestión visual e intuitiva de los agentes, su base de conocimiento y la interacción a través de un chat en tiempo real.
+
+---
+
+## 📋 Características Implementadas
+
+- **Dashboard de Agentes:** Visualización de todos los agentes existentes en formato de tarjetas.
+- **Creación de Agentes:** Modal para crear nuevos agentes de forma sencilla.
+- **Vista de Detalles:** Página dedicada para cada agente que muestra su prompt, documentos y el chat.
+- **Chat Interactivo:** Permite conversar con cada agente obteniendo respuestas basadas en su base de conocimiento.
+- **Gestión de Documentos:** Subida y eliminación de archivos asociados a cada agente.
+- **Edición y Eliminación:** Modales y diálogos de confirmación para actualizar o eliminar agentes.
+- **Notificaciones:** Sistema de _toasts_ para feedback del usuario (por ejemplo, “Agente creado con éxito”).
+
+---
+
+## 🛠️ Stack Tecnológico
+
+| Categoría          | Tecnología               |
+| ------------------ | ------------------------ |
+| **Framework**      | Next.js 14+ (App Router) |
+| **Lenguaje**       | TypeScript               |
+| **Estilos**        | Tailwind CSS             |
+| **Componentes UI** | Shadcn/ui                |
+| **HTTP Client**    | Axios                    |
+| **Formularios**    | React Hook Form          |
+
+---
+
+## 🚀 Instalación y Puesta en Marcha
+
+Sigue estos pasos para ejecutar el proyecto localmente:
+
+### 1️⃣ Prerrequisitos
+
+- Node.js **18 o superior**
+- El servidor **backend** debe estar en ejecución
+
+---
+
+### 2️⃣ Clonar el Repositorio
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd frontend-folder
+```
+
+---
+
+### 3️⃣ Instalar Dependencias
+
+```bash
+npm install
+```
+
+---
+
+### 4️⃣ Conexión con el Backend
+
+Asegúrate de que la URL del backend esté correctamente configurada en el archivo `src/services/api.ts`.  
+Por defecto, apunta a `http://127.0.0.1:8000`.
+
+```typescript
+// src/services/api.ts
+const apiClient = axios.create({
+  baseURL: "http://127.0.0.1:8000", // Modificar si es necesario
+  // ...
+});
+```
+
+---
+
+### 5️⃣ Ejecutar la Aplicación
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará disponible en:  
+👉 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Estructura del Proyecto
 
-## Learn More
+```
+src/
+├── app/                    # Rutas de la aplicación (Next.js App Router)
+│   ├── page.tsx            # Página principal (lista de agentes)
+│   └── agents/[agentId]/   # Página dinámica con detalles de cada agente
+│
+├── components/             # Componentes reutilizables (modales, diálogos, etc.)
+│   └── ui/                 # Componentes generados por Shadcn/ui
+│
+└── services/               # Comunicación con la API del backend
+    └── api.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto es de código privado y está protegido bajo los derechos de su respectivo autor o entidad propietaria.  
+Para uso interno o académico, se recomienda solicitar autorización previa.
